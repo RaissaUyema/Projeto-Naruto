@@ -18,11 +18,11 @@ z<!DOCTYPE html>
           <div class="container1">
             <div><h3>Seja Bem-Vindo 'Hokage'</h3></div>
 
-            <input class="cadastro" type="text" placeholder="NOME" />
-            <input class="cadastro" type="text" placeholder="E-MAIL" />
-            <input class="cadastro" type="password" placeholder="SENHA" />
+            <input id="nome" class="cadastro" type="text" placeholder="NOME" />
+            <input id="email" class="cadastro" type="text" placeholder="E-MAIL" />
+            <input id="senha" class="cadastro" type="password" placeholder="SENHA" />
 
-            <button class="botao_enviar">ENVIAR</button>
+            <button class="botao_enviar" onclick="autenticar()">ENVIAR</button>
 
             <p>Não tem uma conta?
                 <a href="./cadastro.html">Crie agora!</a>
@@ -39,3 +39,54 @@ z<!DOCTYPE html>
     </div>
   </body>
 </html>
+
+
+<script>
+  function autenticar() {
+      // aguardar();
+
+      var nomeVar = nome.value;
+      var emailVar = email.value;
+      var senhaVar = senha.value;
+
+      if (emailVar == "" || senhaVar == "") {
+          return false;
+      }
+      fetch("/usuarios/autenticar", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              nomeServer: nomeVar,
+              emailServer: emailVar,
+              senhaServer: senhaVar
+          })
+      }).then(function (resposta) {
+          console.log("ESTOU NO THEN DO entrar()!")
+
+          if (resposta.ok) {
+              console.log(resposta);
+              resposta.json().then(json => {
+                  console.log(json);
+                  console.log(JSON.stringify(json));
+                  sessionStorage.EMAIL_USUARIO = json.email;
+                  sessionStorage.NOME_USUARIO = json.nome;
+                  sessionStorage.ID_USUARIO = json.id;
+                  // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                  setTimeout(function () {
+                      window.location = "./personagens.html";
+                  }, 1000); // apenas para exibir o loading
+
+              });
+
+            }
+
+      }).catch(function (erro) {
+          console.log(erro);
+      })
+
+      return false;
+  }
+</script>
