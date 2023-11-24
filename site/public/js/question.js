@@ -5,7 +5,7 @@ var quiz = [
       q: "Qual é o clã de Sasuke?",
       opcoes: ['Uzumaki', 'Hyuga', 'Uchiha', 'Nara'],
       resposta: 2
-    },
+    }, 
   
     {
       q: "Qual é o nome do sensei de Naruto na Academia Ninja?",

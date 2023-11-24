@@ -162,7 +162,7 @@ function fim_quiz() {
     });
   return false;
 }
-
+ 
 function resultado_quiz() {
   var porcentagem = (respostas_corretas / limite_de_questoes) * 100;
   container_resultado.querySelector(".total_questoes").innerHTML =
@@ -208,12 +208,10 @@ function iniciar_quiz() {
 }
 
 function ver_dash() {
-  container_resultado.classList.add("hide");
-  container_dash.classList.remove("hide");
-  grafico_facil(sessionStorage.ID_USUARIO);
-  grafico_medio(sessionStorage.ID_USUARIO);
-  grafico_dificil(sessionStorage.ID_USUARIO);
-  grafico_geral(sessionStorage.ID_USUARIO);
+  window.location = `./dashboard/dashboard.html`
+//   container_resultado.classList.add("hide");
+//   container_dash.classList.remove("hide");
+//   grafico_geral(sessionStorage.ID_USUARIO);
 }
 
 function desaparecer_pref () {
