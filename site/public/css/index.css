@@ -1,0 +1,500 @@
+*{ 
+    margin: 0;
+    padding: 0; 
+}
+ 
+body {
+    background-color: black;
+    height: 100vh;
+    width: 100%; 
+} 
+
+.header{
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    padding: 2%;
+    padding-top: 10px;
+    width: 96vw;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.867);
+    z-index: 2;
+    height: 75px;
+
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.header p {
+    font-size: 30px;
+    padding-top: 22px;
+}
+.header .botao{
+    padding-top: 15px;
+}
+.header button {
+    width: 250px;
+    height: 46px;
+    border-radius: 30px;
+    font-size: 30px;
+    background-color: #EE7331;
+}
+
+.header button a{
+    text-decoration: none;
+    color: black;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.main .container2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    width: 90%;
+    height: 500px;
+    margin-top: 90px;
+
+    margin-top: 90px;
+}
+
+.main .container2 .conteudo {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    justify-content: space-evenly;
+    padding: 0 50px;
+}
+
+.main .container2 .conteudo .titulo {
+    display: flex;
+    flex-direction: column;
+}
+
+.main .container2 .conteudo .titulo h1 {
+    font-size: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.main .container2 .conteudo .titulo h3 {
+    display: flex;
+    font-size: 40px;
+    justify-content: flex-end;
+}
+
+.main .container2 .conteudo p {
+    font-size: 30px;
+}
+
+.main .container2 .conteudo .botao{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.main .container2 .conteudo .botao button{
+    background-color: #EE7331;
+    width: 40%;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.main .container2 .conteudo .botao button a{
+    text-decoration: none;
+    color: black;
+}
+
+.main .container2 .imagem_home {
+    justify-content: center;
+    display: flex;
+    margin-top: 120px;
+}
+
+
+
+
+
+.container3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.slider{
+    margin: 0 auto;
+    width: 100%;
+    height: 450px;
+    padding: 0 25%;
+    overflow: hidden;
+}
+.slides {
+    width: 400%;
+    height: 400px;
+    display: flex;
+    
+}
+.slides input {
+    display: none;
+}
+.slide {
+    width: 25%;
+    position: relative;
+    transition: 2s;
+    margin: 0 10%;
+}
+ .slide img{
+    width: 800px;
+}
+.manual_navegacao {
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+ .manual_botao {
+    border: 2px solid #FFF;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+.manual_botao:not(:last-child){
+    margin-right: 40px;
+}
+.manual_botao:hover{
+    background-color: #FFF;
+}
+#radio1:checked ~ .first{
+    margin-left: 0%;
+}
+#radio2:checked ~ .first{
+    margin-left: -45%;
+}
+#radio3:checked ~ .first{
+    margin-left: -90%;
+}
+#radio4:checked ~ .first{
+    margin-left: -135%;
+}
+.navegacao div{
+    border: 2px solid #20a6ff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+.navegacao{
+    position: absolute;
+    width: 800px;
+    margin-top: 360px;
+    display: flex;
+    justify-content: center;
+}
+.navegacao div:not(:last-child){
+    margin-right: 40px;
+}
+#radio1:checked ~ .navegacao .auto_botao1{
+    background-color: #FFF;
+}
+#radio2:checked ~ .navegacao .auto_botao2{
+    background-color: #FFF;
+}
+#radio3:checked ~ .navegacao .auto_botao3{
+    background-color: #FFF;
+}
+#radio4:checked ~ .navegacao .auto_botao4{
+    background-color: #FFF;
+}
+
+
+
+
+
+.container4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+.container4 p a{
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+
+
+
+
+
+.container5 {
+    display: flex;
+    width: 100%;
+    height: 730px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+.container5 h1{
+    color: white;
+    font-size: 70px;
+}
+.container5 .imagem_jogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 400px;
+}
+.container5 .botao_jogo {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container5 .botao_jogo button{
+    background-color: #EE7331;
+    width: 35%;
+    height: 40px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+.container5 .botao_jogo button a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
+
+.container6 {
+    width: 100%;
+    height: 1080px;
+    background-image: url(../assets/quadrinho.jpg);
+    background-size: contain;
+}
+.container6 .saibamais{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 0;
+}
+
+.container6 .saibamais .saibamaisClassico{
+    display: flex;
+    background-color: hsla(200, 4%, 14%, 0.8);
+    width: 50%;
+    height: 400px;
+    margin: 70px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.container6 .saibamaisClassico .h1{
+    display: flex;
+    width: 80%;
+    height: 100px;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 40px;
+    color: white;
+}
+.container6 .saibamaisClassico .paragrafo{
+    display: flex;
+    width: 80%;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    color: white;
+}
+.container6 .saibamaisClassico .botao{
+    display: flex;
+    width: 80%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.container6 .saibamaisClassico .botao button{
+    width: 30%;
+    height: 50px;
+    border-radius: 20px;
+    color: black;
+    font-size: 30px;
+    box-shadow: 0.1em 0.1em rgb((0, 0, 0) 1);
+    background-color: #EE7331;
+}
+.container6 .saibamaisClassico .botao button a{
+    text-decoration: none;
+    color: black;
+}
+.container6 .saibamais .saibamaisClassico .imagem_classico{
+    z-index: 1;
+    position: absolute;
+    left: 0%;
+    bottom: -240%;
+}
+
+.container6 .saibamais .saibamaisShippuden {
+    display: flex;
+    background-color: #212526cc;
+    width: 50%;
+    height: 400px;
+    margin: 50px;
+    flex-direction: column;
+}
+
+.container6 .saibamais .saibamaisShippuden .h1{
+    display: flex;
+    width: 80%;
+    height: 100px;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 35px;
+    color: white;
+}
+.container6 .saibamais .saibamaisShippuden .paragrafo{
+    display: flex;
+    width: 80%;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    color: white;
+}
+.container6 .saibamais .saibamaisShippuden .botao{
+    display: flex;
+    width: 80%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.container6 .saibamais .saibamaisShippuden .botao button{
+    width: 30%;
+    height: 50px;
+    border-radius: 20px;
+    color: black;
+    font-size: 30px;
+    background-color: #EE7331;
+}
+.container6 .saibamais .saibamaisShippuden .botao button a{
+    text-decoration: none;
+    color: black;
+}
+.container6 .saibamais .saibamaisShippuden .imagem_shippuden{
+    z-index: 1;
+    position: absolute;
+    right: 0%;
+    bottom: -328%;
+    margin-right: 180px;
+}
+
+.container7{
+    display: flex;
+    width: 100%;
+    height: 500px;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+.container7 .paragrafo{
+    display: flex;
+    color: white;
+    font-size: 65px;
+    width: 48%;
+    align-items: center;
+    justify-content: center;
+}
+.container7 .paragrafo p{
+    text-decoration: none;
+    margin-right: 28px;
+}
+.container7 .imagem{
+    display: flex;
+    width: 48%;
+    align-items: center;
+    justify-content: center;
+}
+.container7 .imagem img{
+    margin-left: 80px;
+}
+
+
+
+.container8 {
+    display: flex;
+    width: 100%;
+    height: 570px;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid white;
+}
+.container8 .sobre{
+    width: 40%;
+    height: 310px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: 1px solid white;
+
+}
+.container8 .sobre .h1{
+    height: 70px;
+}
+.container8 .sobre .h1 h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 40px;
+}
+.container8 .sobre .paragrafo {
+    border: 1px solid white;
+    height: 240px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container8 .sobre .paragrafo p{
+    color: white;
+    font-size: 25px;
+}
+
+.container8 .valores{
+    width: 40%;
+    height: 310px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid white;
+}
+.container8 .valores .valores_texto{
+    width: 30%;
+}
+.container8 .valores p{
+    color: white; 
+    height: 250px;
+}
+.container8 .valores h1{
+    color: white;
+    font-size: 25px;
+}
+
+
+footer {
+    background-color: #EE7331;
+    width: 100%;
+    height: 80px;
+}

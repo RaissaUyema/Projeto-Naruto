@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+ }  
+   
+ body { 
+    background-image: url(../assets/VILAR.jpg);
+    backdrop-filter: brightness(0.3);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+ }
+ 
+ .header {
+     display: flex;
+     justify-content: space-between;
+     /* padding-top: 30px; */
+     /* padding: 2%; */
+     width: 100%;
+     height: 140px;
+     
+ }
+ .header .botao_voltar {
+     background-color: orangered;
+     color: black;
+     width: 250px;
+     height: 50px;
+     border-radius: 30px;
+     display: flex;
+     font-size: 30px; 
+ 
+     align-items: center;
+     justify-content: center;
+ }
+ .header .botao_voltar a{
+     text-decoration: none;
+     color: black;
+ }
+ 
+ .main {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 538PX;
+     width: 100%;
+     
+ }
+ 
+ .main .container1 {
+     display: flex;
+     flex-direction: column;
+     width: 39%;
+     height: 448px;
+     justify-content: space-around;
+     align-items: center;
+     background-color: rgba(70, 75, 75, 0.377);
+     border-radius: 15px;
+ }
+ .main .container1 input{
+     border-radius: 10px;
+     color: white;
+ }
+
+ .main .container1 h3 {
+     color: white;
+     font-size: 33px;
+ }
+ 
+ .main .container1 .cadastro {
+     background-color: black;
+     height: 35px;
+     width: 80%;
+ }
+  .botao_enviar {
+     background-color: orangered;
+     color: black;
+     width: 145px;
+     height: 40px;
+     border-radius: 20px;
+     display: flex;
+ 
+     align-items: center;
+     justify-content: center;
+  }
+ 
+  .imagem_hokage {
+     display: flex;
+     position: absolute;
+     right: 0%;
+     bottom: 0.1%;
+  }
+ 
+ 

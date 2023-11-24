@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>  
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="./css/cadastro.css" />
+  </head> 
+  <body>
+    <div class="container">
+
+      <div class="header">
+        <img src="./assets/Naruto-logo (2).png" width="330px" />
+        <button class="botao_voltar"><a href="./index.html">Voltar</a></button>
+      </div>
+
+      <section class="main">
+          <div class="container1">
+            <div><h3>VENHA SE TORNAR UM MEMBRO</h3></div>
+
+            <input id="nome" class="cadastro" type="text" placeholder="NOME" />
+            <input id="email" class="cadastro" type="text" placeholder="E-MAIL" />
+            <input id="telefone" class="cadastro" type="text" placeholder="TELEFONE" />
+            <input id="criarSenha" class="cadastro" type="text" placeholder="CRIAR SENHA" />
+            <input id="confirmarSenha" class="cadastro" type="text" placeholder="CONFIRMAR SENHA" />
+
+            <button onclick="cadastrar()" class="botao_enviar">Enviar</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="imagem_hokage">
+        <img src="./assets/narutoH.png" width="330px">
+      </div>
+
+    </div>
+  </body>
+</html>
+<script>
+  function cadastrar(){
+    var nomeVar = nome.value;
+    var emailVar = email.value;
+    var telefoneVar = telefone.value;
+    var senhaVar = criarSenha.value;
+    var confirmarSenhaVar = confirmarSenha.value
+if(
+  nomeVar == "" ||
+  emailVar == "" ||
+  telefoneVar == "" ||
+  senhaVar == "" ||
+  confirmarSenhaVar == ""
+ ){
+  alert('tufo errado')
+ } else {}
+console.log(nomeVar)
+console.log(emailVar)
+console.log(telefoneVar)
+console.log(senhaVar)
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+
+        
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        telefoneServer: telefoneVar,
+        senhaServer: senhaVar,
+        confirmarServer: confirmarSenhaVar,
+        
+      }),
+    })
+    
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+
+          setTimeout(() => {
+            window.location = "./login.html";
+          }, "2000");
+
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+    return false;
+  }
+
+</script>
+
+

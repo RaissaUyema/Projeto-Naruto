@@ -7,7 +7,7 @@ var sql = require('mssql');
 //     database: "SEU_BANCO_DE_DADOS",
 //     user: "SEU_USUARIO",
 //     password: "SUA_SENHA",
-//     pool: {
+//     pool: { 
 //         max: 10,
 //         min: 0,
 //         idleTimeoutMillis: 30000
@@ -20,7 +20,7 @@ var sql = require('mssql');
 // CONEXÃO DO MYSQL WORKBENCH
 var mySqlConfig = {
     host: "localhost",
-    database: "aquatech",
+    database: "projetoIndividual",
     user: "root",
     password: "Biel2905.",
 };
