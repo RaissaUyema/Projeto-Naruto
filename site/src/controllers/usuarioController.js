@@ -1,6 +1,6 @@
 var usuarioModel = require("../models/usuarioModel");
 
-function autenticar(req, res) {
+function autenticar(req, res) { 
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -18,9 +18,8 @@ function autenticar(req, res) {
                 function(resultadoAutenticar){
                     if(resultadoAutenticar.length == 1){
                         res.json({
-                            id: resultadoAutenticar[0].id,
+                            idUsuario: resultadoAutenticar[0].idUsuario,
                             nome: resultadoAutenticar[0].nome,
-                            senha: resultadoAutenticar[0].senha,
                             email: resultadoAutenticar[0].email,
 
                         })

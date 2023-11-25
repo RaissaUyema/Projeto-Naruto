@@ -9,7 +9,7 @@
     background-color: black;
 }
 .header .titulo{ 
-    width: 60%;
+    width: 60%; 
     display: flex;
     align-items: center; 
     justify-content: center;
@@ -29,15 +29,20 @@
 .header .botao button{
     width: 30%;
     height: 30px;
-    border-radius: 10px;
+    border-radius: 30px;
     background-color: #EE7331;
-    font-size: 20px;
-}
+    font-size: 25px;
+} 
 .header .botao button a{
     text-decoration: none;
     color: black;
 }
-
+h1{
+    font-size: 75px;
+}
+p{
+    font-size: 22px;
+}
 .container .fileira{
     display: flex;
     width: 100%;

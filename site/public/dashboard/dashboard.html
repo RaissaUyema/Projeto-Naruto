@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../css/dashboards.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div class="header">
@@ -16,112 +17,123 @@
         <button onclick="volatr()"><a href="../quiz.html">Voltar</a></button>
       </div>
     </div>
-
+  
     <div class="dashboard">
       <div class="fileira1">
-        <div class="grafico1">
-          <canvas id="myChart" style="width: 100%; height: 100%"></canvas>
+        <div class="grafico1 dados">
+          <canvas id="acertosEerros" style="width: 100%; height: 100%"></canvas>
         </div>
       </div>
 
       <div class="fileira2">
-        <div class="grafico"></div>
-        <div class="grafico"></div>
+        <div class="grafico2 dados">
+          <canvas id="GraficoErros" style="width: 100%; height: 100%"></canvas>
+        </div>
+
+        <div class="grafico3 dados">
+          <canvas id="GraficosAcertos" style="width: 100%; height: 100%"></canvas>
+       </div>
+
       </div>
     </div>
   </body>
 </html>
-
+<!-- , 'Respostas Incorretas', 'Porcentagem de Acertos' -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!-- <script>
-    new Chart(teste ,{
-    const labels = [
-        'Tentativa',
-        'Tentativa',
-        'Tentativa',
-        'Tentativa',
-        'Tentativa',
-        'Tentativa'
-    ];
-    const data = {
-        labels : labels,
-        datasets: [{
-            label: 'Temperatura Média',
-            backgroundColor: 'red',
-            borderColor: 'red',
-            data: [22, 24, 27, 23, 20, 28],
-        },
-        {
-            label: 'Umidade Média',
-            backgroundColor: 'blue',
-            borderColor: 'blue',
-            data: [90, 89, 93, 87, 88, 82],
-        }
-    ]
-    };
-    const config = {
-        type: 'line',
-        data: data,
-        Options: {} 
-    };
-})
-</script>
-<script>
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
-</script>
 
 <script>
+// Defina suas variáveis de respostas corretas e incorretas
+var respostas_corretas = 10;
+var respostas_incorretas = 5;
+// Calcule a porcentagem de acertos
+var total_respostas = respostas_corretas + respostas_incorretas;
+var porcentagem_acertos = (respostas_corretas / total_respostas) * 100;
+var porcentagem_erros = porcentagem_acertos - 100;
 
-    const labels = [
-        'Tentativa',
-        'Tentativa',
-        'Tentativa',
-        'Tentativa',
-        'Tentativa',
-        'Tentativa'
-    ];
-    const data = {
-        labels : labels,
-        datasets: [{
-            label: 'Temperatura Média',
-            backgroundColor: 'red',
-            borderColor: 'red',
-            data: [22, 24, 27, 23, 20, 28],
-        },
-        {
-            label: 'Umidade Média',
-            backgroundColor: 'blue',
-            borderColor: 'blue',
-            data: [90, 89, 93, 87, 88, 82],
+const ctxx = document.getElementById('acertosEerros');
+
+new Chart(ctxx, {
+  type: 'line',
+  data: {
+    labels: ['Respostas Corretas', 'Respostas Incorretas'],
+    datasets: [{
+      label: 'Resultados do Quiz',
+      data: [porcentagem_acertos, porcentagem_erros],
+      backgroundColor: [
+        'green',
+        'red' // Cor para respostas corretas
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1, // Modifique o stepSize conforme necessário
         }
-    ]
-    };
-    const config = {
-        type: 'line',
-        data: data,
-        Options: {} 
-    };
-</script> -->
+      }
+    }
+  }
+});
 
-<!-- <div class="lateral_esquerda">
-        <div class="logo">
-            <img src="../imagem/Naruto-logo (2).png" alt="logo" width="300px">
-        </div>
+const ctx = document.getElementById('GraficosAcertos');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Respostas Corretas'],
+    datasets: [{
+      label: 'Resultados do Quiz',
+      data: [porcentagem_acertos],
+      backgroundColor: [
+        'green', // Cor para respostas corretas
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1, // Modifique o stepSize conforme necessário
+        }
+      }
+    }
+  }
+});
 
 
-        <div class="rankingn" >
-            <h1>Questões</h1>
-           
-        </div>
+const ctxxx = document.getElementById('GraficoErros');
 
-        <div class="botao">
-            
-            <a href="file:///C:/Users/Raiss/Documents/SPtech/NARUTO/narutoo/Projeto-Individual/quiz/quiz.html">
-                <img src="../imagem/setaa.png" alt="seta" onclick="seta(`seta`)"
-                width="40%">
-            </a>
-        </div> 
-    </div> -->
+new Chart(ctxxx, {
+  type: 'bar',
+  data: {
+    labels: ['Respostas Incorretas'],
+    datasets: [{
+      label: 'Resultados do Quiz',
+      data: [porcentagem_erros],
+      backgroundColor: [
+        'red', // Cor para respostas corretas
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1, // Modifique o stepSize conforme necessário
+        }
+      }
+    }
+  }
+});
+
+</script>
+
+<script src="../js/app.js"></script>
+
+

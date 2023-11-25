@@ -9,7 +9,7 @@
     background-color: black;
 }
 .header .titulo{
-    width: 60%;
+    width: 60%; 
     display: flex; 
     align-items: center; 
     justify-content: center;
@@ -29,7 +29,7 @@
 .header .botao button{
     width: 30%;
     height: 30px;
-    border-radius: 10px;
+    border-radius: 30px;
     background-color: #EE7331;
     font-size: 20px;
 }
@@ -56,6 +56,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .container .fileira .video1{
@@ -66,7 +67,7 @@
 }
 
 
-
+ 
 
 .container .fileira1{
     display: flex;
@@ -77,18 +78,7 @@
     color: #ffffff;
     background-color: black;
 }
-/* .container .fileira1 .texto{
-    width: 30%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    margin: 200px;
-} */
-/* .container .fileira1 .texto{
-    width: 80%;
 
-    background-color: crimson;
-} */
 
 #texto{
     margin: 20px;
@@ -99,13 +89,11 @@
     justify-content: center;
     align-items: center;
     padding: 70px 200px;
-
-    background-color: aqua;
-    /* padding-inline: 150px; */
-     /* padding: 160px; */
+    font-family: Arial, Helvetica, sans-serif;
 }
 #texto p{
-    width: 110%;
+    width: 100%;
+    font-size: 15px;
 }
 
 .container .fileira1 h1{
@@ -119,7 +107,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: 190px;
+    bottom: 200px;
     position: absolute;
 }
 .container .fileira .video1 video{

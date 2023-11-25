@@ -13,12 +13,12 @@ var container = document.querySelector(".container")
 var limite_de_questoes = 5; 
 var contador_questoes = 0; 
 var questao_atual;
-// var dificuldade; 
 var questoes_disponiveis = [];
 var opcoes_disponiveis = [];
 var respostas_corretas = 0;
 var respostas_incorretas = 0;
 var tentativa = 0;
+var idUsuario = sessionStorage.ID_USUARIO;
 
 
 function set_questoes_disponiveis() {
@@ -137,15 +137,15 @@ function fim_quiz() {
   container_quiz.classList.add("hide");
   container_resultado.classList.remove("hide");
   resultado_quiz();
-  fetch("/quiz/cadastrar/tentativa", {
+  fetch("/quiz/cadastrar", { 
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
+    body: JSON.stringify({ 
       respostas_corretasServer: respostas_corretas,
       respostas_incorretasServer: respostas_incorretas,
-      fkUsuarioServer: sessionStorage.ID_USUARIO 
+      fkUsuarioServer: idUsuario 
     }),
   })
     .then(function (resposta) {
@@ -163,16 +163,23 @@ function fim_quiz() {
   return false;
 }
  
+
+
+
 function resultado_quiz() {
   var porcentagem = (respostas_corretas / limite_de_questoes) * 100;
   container_resultado.querySelector(".total_questoes").innerHTML =
     limite_de_questoes;
+
   container_resultado.querySelector(".total_corretas").innerHTML =
     respostas_corretas;
+
   container_resultado.querySelector(".total_erradas").innerHTML =
     respostas_incorretas;
+
   container_resultado.querySelector(".porcentagem").innerHTML =
     porcentagem.toFixed(2) + "%";
+
   container_resultado.querySelector(".total_score").innerHTML =
     respostas_corretas + " / " + limite_de_questoes;
 }
@@ -209,11 +216,9 @@ function iniciar_quiz() {
 
 function ver_dash() {
   window.location = `./dashboard/dashboard.html`
-//   container_resultado.classList.add("hide");
-//   container_dash.classList.remove("hide");
-//   grafico_geral(sessionStorage.ID_USUARIO);
-}
 
+}
+ 
 function desaparecer_pref () {
   container.classList.add("hide");
   container_casa.classList.remove("hide");
