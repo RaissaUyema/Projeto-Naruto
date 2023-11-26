@@ -23,6 +23,29 @@ function cadastrar(req, res){
             );
    
 }
+
+function buscar(req, res){
+    var idUsuario = req.params.idUsuario;
+    console.log("popayyyyyyyyyyyyyyyyy " + idUsuario)
+    quizModel.buscar(idUsuario)
+            .then(
+                function (resultado) {
+                    console.log("gedgfldfbfgbvhdf "+ resultado)
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+   
+}
 module.exports = {
-    cadastrar
+    cadastrar,
+    buscar
 }

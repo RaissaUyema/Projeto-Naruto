@@ -1,4 +1,4 @@
-// var random = ['naruto', 'sakura', 'sasuke', 'kakashi', 'jiraiya', 'hinata', 'gaara', 'shikamu', 'neji', 'sai'];
+
 
 function sobre_person(person){
   var modal = document.getElementById('modal_informacao_person');
@@ -220,7 +220,7 @@ function sobre_person(person){
     tipo_person.innerHTML = `<h1>Minato Namikaze</h1>
     <p><span class="informacoes">Origem:</span>Ninja da Vila da Folha (Konohagakure).
       Quarto Hokage e pai de Naruto Uzumaki.</p>
-  
+   
     <p><span class="informacoes"> História de Fundo:</span>Reconhecido como um gênio desde jovem, se formou como Hokage mais jovem na história.
       Lutou na Terceira Grande Guerra Ninja.</p>
   
@@ -262,5 +262,28 @@ window.addEventListener('click', (e) => {
 )
 
 function favoritos(){
-  
+  fetch("/personagens/favoritar", { 
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ 
+      respostas_corretasServer: respostas_corretas,
+      respostas_incorretasServer: respostas_incorretas,
+      fkUsuarioServer: idUsuario 
+    }),
+  })
+    .then(function (resposta) {
+
+      console.log("resposta: ", resposta);
+      if (resposta.ok) {
+        console.log("Passou pelo Script do front")
+      } else {
+        throw "Houve um erro ao gravar a pontuação da partida no banco!";
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+  return false;
 }

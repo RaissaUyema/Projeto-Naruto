@@ -10,22 +10,26 @@
   <body>
     <div class="header">
       <div class="logo">
-        <img src="../assets/Naruto-logo (2).png" alt="" width="150px" />
+        <img src="../assets/Naruto-logo (2).png" alt="" width="250px" />
       </div>
 
       <div class="botao">
         <button onclick="volatr()"><a href="../quiz.html">Voltar</a></button>
       </div>
     </div>
-  
+
     <div class="dashboard">
+      <div class="span_tentativas">
+        <span> Quantidade de tentativa: <span id="tentativas"></span> </span>
+      </div>
+
       <div class="fileira1">
         <div class="grafico1 dados">
           <canvas id="acertosEerros" style="width: 100%; height: 100%"></canvas>
         </div>
       </div>
 
-      <div class="fileira2">
+      <!-- <div class="fileira2">
         <div class="grafico2 dados">
           <canvas id="GraficoErros" style="width: 100%; height: 100%"></canvas>
         </div>
@@ -34,106 +38,124 @@
           <canvas id="GraficosAcertos" style="width: 100%; height: 100%"></canvas>
        </div>
 
-      </div>
+      </div> -->
     </div>
   </body>
 </html>
 <!-- , 'Respostas Incorretas', 'Porcentagem de Acertos' -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-// Defina suas variáveis de respostas corretas e incorretas
-var respostas_corretas = 10;
-var respostas_incorretas = 5;
-// Calcule a porcentagem de acertos
-var total_respostas = respostas_corretas + respostas_incorretas;
-var porcentagem_acertos = (respostas_corretas / total_respostas) * 100;
-var porcentagem_erros = porcentagem_acertos - 100;
+  var idUsuario = sessionStorage.ID_USUARIO;
+  window.onload = function (idUsuario) {
+    console.log("raissa linda maravilhosa " + idUsuario)
+    fetch(`/quiz/buscar/${idUsuario}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(function (resposta) {
+        console.log("Dados recebidos: ", JSON.stringify(resposta));
+        resposta.json().then((json) => {
+          console.log("OLAAAAAAAAAAAAAAAA " + json);
+          console.log("OLAAAAAAAAAAAAAAAA222 " + JSON.stringify(json));
+        });
+      })
 
-const ctxx = document.getElementById('acertosEerros');
+      .catch(function (erro) {
+        console.error("Erro desconhecido na API.");
+      });
+  };
+  // Defina suas variáveis de respostas corretas e incorretas
+  var respostas_corretas = 10;
+  var respostas_incorretas = 5;
+  // Calcule a porcentagem de acertos
+  var total_respostas = respostas_corretas + respostas_incorretas;
+  var porcentagem_acertos = (respostas_corretas / total_respostas) * 100;
+  var porcentagem_erros = porcentagem_acertos - 100;
 
-new Chart(ctxx, {
-  type: 'line',
-  data: {
-    labels: ['Respostas Corretas', 'Respostas Incorretas'],
-    datasets: [{
-      label: 'Resultados do Quiz',
-      data: [porcentagem_acertos, porcentagem_erros],
-      backgroundColor: [
-        'green',
-        'red' // Cor para respostas corretas
+  const ctxx = document.getElementById("acertosEerros");
+
+  new Chart(ctxx, {
+    type: "line",
+    data: {
+      labels: ["Respostas Corretas", "Respostas Incorretas"],
+      datasets: [
+        {
+          label: "Resultados do Quiz",
+          data: [porcentagem_acertos, porcentagem_erros],
+          backgroundColor: [
+            "green",
+            "red", // Cor para respostas corretas
+          ],
+          borderWidth: 1,
+        },
       ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true,
-        ticks: {
-          stepSize: 1, // Modifique o stepSize conforme necessário
-        }
-      }
-    }
-  }
-});
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 1, // Modifique o stepSize conforme necessário
+          },
+        },
+      },
+    },
+  });
 
-const ctx = document.getElementById('GraficosAcertos');
-new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['Respostas Corretas'],
-    datasets: [{
-      label: 'Resultados do Quiz',
-      data: [porcentagem_acertos],
-      backgroundColor: [
-        'green', // Cor para respostas corretas
-      ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true,
-        ticks: {
-          stepSize: 1, // Modifique o stepSize conforme necessário
-        }
-      }
-    }
-  }
-});
+  // const ctx = document.getElementById('GraficosAcertos');
+  // new Chart(ctx, {
+  //   type: 'bar',
+  //   data: {
+  //     labels: ['Respostas Corretas'],
+  //     datasets: [{
+  //       label: 'Resultados do Quiz',
+  //       data: [porcentagem_acertos],
+  //       backgroundColor: [
+  //         'green', // Cor para respostas corretas
+  //       ],
+  //       borderWidth: 1
+  //     }]
+  //   },
+  //   options: {
+  //     scales: {
+  //       y: {
+  //         beginAtZero: true,
+  //         ticks: {
+  //           stepSize: 1, // Modifique o stepSize conforme necessário
+  //         }
+  //       }
+  //     }
+  //   }
+  // });
 
+  // const ctxxx = document.getElementById('GraficoErros');
 
-const ctxxx = document.getElementById('GraficoErros');
-
-new Chart(ctxxx, {
-  type: 'bar',
-  data: {
-    labels: ['Respostas Incorretas'],
-    datasets: [{
-      label: 'Resultados do Quiz',
-      data: [porcentagem_erros],
-      backgroundColor: [
-        'red', // Cor para respostas corretas
-      ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true,
-        ticks: {
-          stepSize: 1, // Modifique o stepSize conforme necessário
-        }
-      }
-    }
-  }
-});
-
+  // new Chart(ctxxx, {
+  //   type: 'bar',
+  //   data: {
+  //     labels: ['Respostas Incorretas'],
+  //     datasets: [{
+  //       label: 'Resultados do Quiz',
+  //       data: [porcentagem_erros],
+  //       backgroundColor: [
+  //         'red', // Cor para respostas corretas
+  //       ],
+  //       borderWidth: 1
+  //     }]
+  //   },
+  //   options: {
+  //     scales: {
+  //       y: {
+  //         beginAtZero: true,
+  //         ticks: {
+  //           stepSize: 1, // Modifique o stepSize conforme necessário
+  //         }
+  //       }
+  //     }
+  //   }
+  // });
 </script>
 
 <script src="../js/app.js"></script>
-
-

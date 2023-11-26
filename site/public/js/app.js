@@ -135,7 +135,7 @@ function proxima() {
 function fim_quiz() {
   tentativa++;
   container_quiz.classList.add("hide");
-  container_resultado.classList.remove("hide");
+  container_resultado.classList.remove("hide"); 
   resultado_quiz();
   fetch("/quiz/cadastrar", { 
     method: "POST",
@@ -225,7 +225,6 @@ function desaparecer_pref () {
 }
 
 window.onload = function () {
-  container_casa.querySelector(".total_questoes").innerHTML =
-    limite_de_questoes;
+  container_casa.querySelector(".total_questoes").innerHTML = limite_de_questoes;
     setTimeout(desaparecer_pref, 2500)
 };

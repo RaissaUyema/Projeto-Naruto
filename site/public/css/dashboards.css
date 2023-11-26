@@ -41,6 +41,7 @@ height: 100vh;
   height: 100%; 
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .dashboard .fileira1 {
@@ -51,10 +52,11 @@ height: 100vh;
   width: 100%;
   height:42%;
   align-items: center;
+  margin-top: 80px ;
 }
 .dashboard .fileira1 .grafico1{
   width: 80%;
-  height: 290px;
+  height: 410px;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.54);
   /* border: 1px solid white; */
@@ -68,13 +70,22 @@ height: 100vh;
   height: 320px;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.695)
-
-  /* border: 1px solid white; */
 }
 
+.span_tentativas{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  background-color: #eedfb8;
+  color: rgb(0, 0, 0);
+  width: 320px;
+  height: 100px;
+  margin-top: 40px;
+  border-radius: 30px;
+}
 
-
-.dashboard .fileira2 {
+/* .dashboard .fileira2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,8 +98,7 @@ height: 100vh;
   width: 48%;
   height: 280px;
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.695);
-  /* border: 1px solid white; */
+  background-color: rgba(255, 255, 255, 0.695);/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,5 +111,4 @@ height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid white; */
-}
+} */

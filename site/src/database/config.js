@@ -7,7 +7,7 @@ var sql = require('mssql');
 //     database: "SEU_BANCO_DE_DADOS",
 //     user: "SEU_USUARIO",
 //     password: "SUA_SENHA",
-//     pool: { 
+//     pool: {                                                                                  
 //         max: 10,
 //         min: 0,
 //         idleTimeoutMillis: 30000
