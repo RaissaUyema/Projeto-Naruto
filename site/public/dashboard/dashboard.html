@@ -10,7 +10,7 @@
   <body>
     <div class="header">
       <div class="logo">
-        <img src="../assets/Naruto-logo (2).png" alt="" width="250px" />
+        <img src="../assets/Naruto-logo (2).png" alt="" width="300px" />
       </div>
 
       <div class="botao">
@@ -45,8 +45,10 @@
 <!-- , 'Respostas Incorretas', 'Porcentagem de Acertos' -->
 
 <script>
-  var idUsuario = sessionStorage.ID_USUARIO;
-  window.onload = function (idUsuario) {
+  var dados = [];
+  window.onload = function () {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    
     console.log("raissa linda maravilhosa " + idUsuario)
     fetch(`/quiz/buscar/${idUsuario}`, {
       method: "GET",
@@ -57,8 +59,10 @@
       .then(function (resposta) {
         console.log("Dados recebidos: ", JSON.stringify(resposta));
         resposta.json().then((json) => {
-          console.log("OLAAAAAAAAAAAAAAAA " + json);
-          console.log("OLAAAAAAAAAAAAAAAA222 " + JSON.stringify(json));
+          tentativas.innerHTML = json[0].totalTentativas;
+          dados.push(json[0].totalAcertos)
+          dados.push(json[0].totalErros)
+          criarG()
         });
       })
 
@@ -67,23 +71,23 @@
       });
   };
   // Defina suas variáveis de respostas corretas e incorretas
-  var respostas_corretas = 10;
-  var respostas_incorretas = 5;
+ 
   // Calcule a porcentagem de acertos
   var total_respostas = respostas_corretas + respostas_incorretas;
   var porcentagem_acertos = (respostas_corretas / total_respostas) * 100;
   var porcentagem_erros = porcentagem_acertos - 100;
 
-  const ctxx = document.getElementById("acertosEerros");
+  function criarG(){
+  var ctxx = document.getElementById("acertosEerros");
 
   new Chart(ctxx, {
-    type: "line",
+    type: "bar",
     data: {
       labels: ["Respostas Corretas", "Respostas Incorretas"],
       datasets: [
         {
           label: "Resultados do Quiz",
-          data: [porcentagem_acertos, porcentagem_erros],
+          data: dados,
           backgroundColor: [
             "green",
             "red", // Cor para respostas corretas
@@ -103,7 +107,7 @@
       },
     },
   });
-
+  }
   // const ctx = document.getElementById('GraficosAcertos');
   // new Chart(ctx, {
   //   type: 'bar',
@@ -158,4 +162,4 @@
   // });
 </script>
 
-<script src="../js/app.js"></script>
+
