@@ -16,4 +16,4 @@ router.post("/favoritar", function (req, res){
     usuarioController.favoritar(req, res);
 })
 
-module.exports = router;
+module.exports = router; 

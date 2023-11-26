@@ -1,8 +1,8 @@
 body {
     margin: 0;
     font-size: 16px;
-    background-image: url(../assets/quadrinho\ -\ Copia.jpg);
-  }
+    background-image: url(../assets/quadrinho\ -\ Copia.jpg); 
+  } 
    
   * {
     box-sizing: border-box;
@@ -224,7 +224,6 @@ body {
   
   .container_quiz .indicador_respostas div.correto {
     background-color: green;
-    /* background-image: url(media/correct.png); */
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: center;
@@ -232,7 +231,6 @@ body {
   
   .container_quiz .indicador_respostas div.incorreto {
     background-color: red;
-    /* background-image: url(media/wrong.png); */
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: center;

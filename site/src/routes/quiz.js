@@ -11,4 +11,4 @@ router.post("/cadastrar", function (req, res) {
 router.get("/buscar/:idUsuario", function (req, res) {
     quizController.buscar(req, res);
 })
-module.exports = router; 
+module.exports = router;  

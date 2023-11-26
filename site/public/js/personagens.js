@@ -4,7 +4,7 @@ function sobre_person(person){
   var modal = document.getElementById('modal_informacao_person');
 
   if(person == 'naruto'){
-      tipo_person.innerHTML = `<h1> Naruro Uzumaki </h1>
+      tipo_person.innerHTML = `<h1> Naruto Uzumaki </h1>
       <p><span class="informacoes">Origem:</span>Órfão e membro do clã Uzumaki e do clã Namikaze.
       Nasceu em Konohagakure como Jinchuriki da Kyuubi (Nove Caudas).</p>
   <p><span class="informacoes"> História de Fundo:</span>Cresceu como um ninja desconsiderado e rejeitado devido à presença da Kyuubi.

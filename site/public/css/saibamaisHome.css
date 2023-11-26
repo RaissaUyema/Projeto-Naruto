@@ -93,13 +93,14 @@
 }
 #texto p{
     width: 100%;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .container .fileira1 h1{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 29px;
 }
 
 .container .fileira1 .imagem{

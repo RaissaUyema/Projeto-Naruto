@@ -17,8 +17,8 @@
         <button onclick="volatr()"><a href="../quiz.html">Voltar</a></button>
       </div>
     </div>
-
-    <div class="dashboard">
+ 
+    <div class="dashboard"> 
       <div class="span_tentativas">
         <span> Quantidade de tentativa: <span id="tentativas"></span> </span>
       </div>
@@ -29,27 +29,17 @@
         </div>
       </div>
 
-      <!-- <div class="fileira2">
-        <div class="grafico2 dados">
-          <canvas id="GraficoErros" style="width: 100%; height: 100%"></canvas>
-        </div>
-
-        <div class="grafico3 dados">
-          <canvas id="GraficosAcertos" style="width: 100%; height: 100%"></canvas>
-       </div>
-
-      </div> -->
+     
     </div>
   </body>
 </html>
-<!-- , 'Respostas Incorretas', 'Porcentagem de Acertos' -->
+
 
 <script>
   var dados = [];
   window.onload = function () {
     var idUsuario = sessionStorage.ID_USUARIO;
     
-    console.log("raissa linda maravilhosa " + idUsuario)
     fetch(`/quiz/buscar/${idUsuario}`, {
       method: "GET",
       headers: {
@@ -108,58 +98,6 @@
     },
   });
   }
-  // const ctx = document.getElementById('GraficosAcertos');
-  // new Chart(ctx, {
-  //   type: 'bar',
-  //   data: {
-  //     labels: ['Respostas Corretas'],
-  //     datasets: [{
-  //       label: 'Resultados do Quiz',
-  //       data: [porcentagem_acertos],
-  //       backgroundColor: [
-  //         'green', // Cor para respostas corretas
-  //       ],
-  //       borderWidth: 1
-  //     }]
-  //   },
-  //   options: {
-  //     scales: {
-  //       y: {
-  //         beginAtZero: true,
-  //         ticks: {
-  //           stepSize: 1, // Modifique o stepSize conforme necessário
-  //         }
-  //       }
-  //     }
-  //   }
-  // });
-
-  // const ctxxx = document.getElementById('GraficoErros');
-
-  // new Chart(ctxxx, {
-  //   type: 'bar',
-  //   data: {
-  //     labels: ['Respostas Incorretas'],
-  //     datasets: [{
-  //       label: 'Resultados do Quiz',
-  //       data: [porcentagem_erros],
-  //       backgroundColor: [
-  //         'red', // Cor para respostas corretas
-  //       ],
-  //       borderWidth: 1
-  //     }]
-  //   },
-  //   options: {
-  //     scales: {
-  //       y: {
-  //         beginAtZero: true,
-  //         ticks: {
-  //           stepSize: 1, // Modifique o stepSize conforme necessário
-  //         }
-  //       }
-  //     }
-  //   }
-  // });
 </script>
 
 

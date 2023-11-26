@@ -21,7 +21,7 @@ function cadastrar(nome, email, telefone, senha, confirmar) {
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
-}
+} 
 
 module.exports = {
     autenticar,
