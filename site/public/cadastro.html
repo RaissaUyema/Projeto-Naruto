@@ -50,13 +50,24 @@ if(
   senhaVar == "" ||
   confirmarSenhaVar == ""
  ){
-  alert('tufo errado')
- } else {}
-console.log(nomeVar)
-console.log(emailVar)
-console.log(telefoneVar)
-console.log(senhaVar)
-    fetch("/usuarios/cadastrar", {
+  alert('Um ou mais campos vazios')
+  return false
+ } else if(nomeVar.length < 3){
+  alert(`Nome do usuário inválido`)
+  return false
+ }else if(emailVar.indexOf(`@`) == -1 || emailVar.indexOf(`.`) == -1){
+  alert(`Email inválido`)
+  return false
+ }else if(telefoneVar.length != 11){
+  alert(`Formato de telefone inválido, o telefone deve ter 11 caracteres`)
+  return false
+ }else if(senhaVar != confirmarSenhaVar){
+  alert(`Campos de senha e confirmação de senha diferentes!`)
+  return false
+ }
+else{
+ 
+ fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -90,8 +101,6 @@ console.log(senhaVar)
         console.log(`#ERRO: ${resposta}`);
       });
     return false;
+}
   }
-
 </script>
-
-
