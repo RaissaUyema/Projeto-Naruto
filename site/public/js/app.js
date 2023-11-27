@@ -33,6 +33,7 @@ function set_questoes_disponiveis() {
 function nova_questao() {
   // Seleciona uma questão aleatória do conjunto de questões disponíveis
   var indice_questoes = questoes_disponiveis[Math.floor(Math.random() * questoes_disponiveis.length)];
+
   questao_atual = indice_questoes;
   texto_questao.innerHTML = questao_atual.q;
 
@@ -41,6 +42,7 @@ function nova_questao() {
 
   // Remove a questão atual das questões disponíveis
   var index1 = questoes_disponiveis.indexOf(indice_questoes);
+
   questoes_disponiveis.splice(index1, 1);
 
   // Configura as opções disponíveis para a questão atual

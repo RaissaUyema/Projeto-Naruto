@@ -1,7 +1,7 @@
 //Vetor de objetos
 var quiz = [
  
-    {
+    { 
       q: "Qual é o clã de Sasuke?",
       opcoes: ['Uzumaki', 'Hyuga', 'Uchiha', 'Nara'],
       resposta: 2
